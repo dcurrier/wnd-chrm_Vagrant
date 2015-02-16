@@ -76,27 +76,47 @@ Vagrant.configure(2) do |config|
      sudo apt-get -y install libtiff4-dev
      sudo apt-get -y install libfftw3-dev
      sudo apt-get -y install libX11-dev libxt-dev libxaw7-dev
+     sudo aptitude install checkinstall
+     sudo apt-get -y install auto-apt
      
-     # Download phylip source 
-     sudo mkdir -p /phylip
-     wget -cqO /phylip/phylip-3.696.tar.gz 'http://evolution.gs.washington.edu/phylip/download/phylip-3.696.tar.gz'
+     # Install PHYLIP
+     if [ ! -d "/phylip" ]
+        then
+          # Download phylip source 
+          sudo mkdir -p /phylip
+          wget -cqO /phylip/phylip-3.696.tar.gz 'http://evolution.gs.washington.edu/phylip/download/phylip-3.696.tar.gz'
+          
+          # Extract and Make phylip
+          tar -zxvf /phylip/phylip-3.696.tar.gz -C /phylip
+          sudo checkinstall make -C /phylip/phylip-3.696/src -f Makefile.unx install
+        else
+          echo "PHYLIP has already been installed, not installing again"
+      fi
      
-     # Extract and Make phylip
-     tar -zxvf /phylip/phylip-3.696.tar.gz -C /phylip
-     make -C /phylip/phylip-3.696/src -f Makefile.unx install
      
-     # Download wnd-chrm
-     sudo mkdir -p /wnd-chrm
-     wget -cqO /wnd-chrm/wndchrm-1.52.775.tar.gz 'http://ome.grc.nia.nih.gov/wnd-charm/wndchrm-1.52.775.tar.gz'
+     if [ ! -d "/wnd-chrm" ]
+        then
+          # Download wnd-chrm
+          sudo mkdir -p /wnd-chrm
+          wget -cqO /wnd-chrm/wndchrm-1.52.775.tar.gz 'http://ome.grc.nia.nih.gov/wnd-charm/wndchrm-1.52.775.tar.gz'
+          
+          # Extract and Make Wnd-chrm
+          tar -zxvf /wnd-chrm/wndchrm-1.52.775.tar.gz -C /wnd-chrm
+          cd /wnd-chrm/wndchrm-1.52.775
+          auto-apt run ./configure
+          make 
+          sudo checkinstall
+          cd /
+        else
+          echo "Wnd-Chrm has already been installed, not installing again"
+      fi
      
-     # Extract and Make Wnd-chrm
-     tar -zxvf /wnd-chrm/wndchrm-1.52.775.tar.gz -C /wnd-chrm
-     cd /wnd-chrm/wndchrm-1.52.775
-     ./configure
-     make 
-     sudo make install
-     cd /
-     
+     # Move the test images to the home directory
+     wget -cqO /vagrant/binucleate.tar.gz 'http://ome.grc.nia.nih.gov/iicbu2008/binucleate.tar.gz'
+     sudo mkdir /home/vagrant/teach-images
+     sudo mkdir /home/vagrant/unk-images
+     tar -zxvf /vagrant/binucleate.tar.gz -C /home/vagrant/teach-images
+     sudo mv /home/vagrant/teach-images/non_binu/17_21_35_2004-01-20_DAPI_E20_Methanol_14259_49738.tif /home/vagrant/unk-images
      
    SHELL
 end
