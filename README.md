@@ -32,8 +32,32 @@ Installed software:
 * [FFTW 3.x](http://www.fftw.org/download.html)
 * [PHYLIP](http://evolution.genetics.washington.edu/phylip/install.html)
 
-Test Images
+Test Images:
 -----
-A set of test images from the [IICBU Biological Image Repository](http://ome.grc.nia.nih.gov/iicbu2008) are included in the repository.  
+A set of test images from the [IICBU Biological Image Repository](http://ome.grc.nia.nih.gov/iicbu2008) is automatically
+loaded into to the virtual machine when it is launched.
+
+To Run wnd-chrm:
+-----
+With the vagrant running connect to it with ssh:
+  $ vagrant ssh  (should work on Mac OS X, Linux, and some Windows configurations)
+  
+  Use an SSH utility if SSH is not supported from the command line on your system.
+    Host: 127.0.0.1
+    Port: 2222
+    Username: vagrant
+    Password: vagrant
+    
+  From the SSH prompt the wnd-chrm commands can be entered.
+    <pre>$ wndchrm train \[options\] *images* *feature_file*
+    $ wndcharm test \[options\] *feature_file* \[report_file\]
+    $ wndchrm classify *feature_file* *image*</pre>
+    
+  A full description of wndchrm including usage of the above commands:
+  
+  [Shamir L, Orlov N, Eckley DM, Macura T, Johnston J, Goldberg IG. Wndchrm - an open source utility for biological image analysis.](http://www.scfbm.org/content/3/1/13) BMC Source Code for Biology and Medicine. 3: 13, 2008. [PDF download](http://ome.grc.nia.nih.gov/wnd-charm/BMC-wndchrm-utility.pdf)
+    
+    
+  
 
 
