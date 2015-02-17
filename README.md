@@ -1,4 +1,7 @@
 Vagrant Wnd-Chrm
+
+Description:
+-------------
 A stack configuration for Vagrant containing wnd-chrm, an image analysis application.  For more information
 on wnd-chrm see the wnd-chrm documentation [here](https://github.com/wnd-charm/wnd-charm).
 
