@@ -1,5 +1,4 @@
 Vagrant Wnd-Chrm
-============
 A stack configuration for Vagrant containing wnd-chrm, an image analysis application.  For more information
 on wnd-chrm see the wnd-chrm documentation [here](https://github.com/wnd-charm/wnd-charm).
 
@@ -35,3 +34,5 @@ Installed software:
 Test Images
 -----
 A set of test images from the [IICBU Biological Image Repository](http://ome.grc.nia.nih.gov/iicbu2008) are included in the repository.  
+
+
