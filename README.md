@@ -41,19 +41,6 @@ To Run wnd-chrm:
 -----
 With the vagrant running connect to it with ssh:
 <pre>$ vagrant ssh  # should work on Mac OS X, Linux, and some Windows configurations</pre>
-  
-Use an SSH utility if SSH is not supported from the command line on your system.
-  
-- Host: 127.0.0.1
-- Port: 2222
-- Username: vagrant
-- Password: vagrant
-    
-From the SSH prompt the wnd-chrm commands can be entered.
-
-<pre>$ wndchrm train \[options\] *images* *feature_file*
-$ wndcharm test \[options\] *feature_file* \[report_file\]
-$ wndchrm classify *feature_file* *image*</pre>
 
 Use an SSH utility if SSH is not supported from the command line on your system.
   
@@ -64,9 +51,9 @@ Use an SSH utility if SSH is not supported from the command line on your system.
     
 From the SSH prompt the wnd-chrm commands can be entered.
 
-<pre>$ wndchrm train \[options\] *images* *feature_file*
-$ wndcharm test \[options\] *feature_file* \[report_file\]
-$ wndchrm classify *feature_file* *image*</pre>
+<pre>$ wndchrm train [options] images feature_file
+$ wndcharm test [options] feature_file [report_file]
+$ wndchrm classify feature_file image</pre>
 
     
 A full description of wndchrm including usage of the above commands:
