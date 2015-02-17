@@ -50,6 +50,7 @@ With the vagrant running connect to it with ssh:
     - Password: vagrant
     
   From the SSH prompt the wnd-chrm commands can be entered.
+
     <pre>    $ wndchrm train \[options\] *images* *feature_file*
     $ wndcharm test \[options\] *feature_file* \[report_file\]
     $ wndchrm classify *feature_file* *image*</pre>
