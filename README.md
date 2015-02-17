@@ -52,7 +52,7 @@ Use an SSH utility if SSH is not supported from the command line on your system.
 From the SSH prompt the wnd-chrm commands can be entered.
 
 <pre>$ wndchrm train [options] images feature_file
-$ wndcharm test [options] feature_file [report_file]
+$ wndchrm test [options] feature_file [report_file]
 $ wndchrm classify feature_file image</pre>
 
     
